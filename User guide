@@ -1,0 +1,43 @@
+This code contains the implementation of experiment - 'RLL MSc Projects - Machine Teaching (Evaluation of Robotic Teaching)'; Registered with Review Reference:	MRSU-20/21-24777
+
+This code is only for study purpose 
+
+Properties list in line 28 to line 57 are the variables used in this implementation, since the design of MATLAB App Designer to use these variable should obey "app.property" format
+
+Property node 1 to node 12 are the variable for 12 target nodes shown in the experiment
+         temp is the private access used for record node location from dropdown list and transfer to demo button function
+         temp0 to temp4 is the variable which store the degree for each column on target nodes
+         data is the matrix which contain all the data
+         a to a3 is the predicted slope for reproduction
+         rightNow is the variable to record the time when user turn on the experiment switch and start the experiment
+         howlong is the variable to record the time when user turn off the experiment switch and end the experiment
+         record is the matrix records all the user input
+         score_record is the matrix records user's teaching score
+         
+         
+function startupFcn(app): build the experiment environment, display all target nodes once run the program
+
+function SelectnodeDropDownValueChanged(app, event): detect the user input and save the user input to app.temp save the slope of the user input to app.temp0
+
+function DemonstrateButtonPushed(app, event): function for demonstrate button, a_regulation, b_regulation, c_regulation is the regulation term for regression prediction; 
+         scatter function is used for plot reproductions; app.a is the variable for the regression prediction; error_1 to error_12 are varables to calculate the error rate for each 
+         predicted trajectory; app.error is the total error rate; sec is the variable for time cost; app.ScoreEditField.Value is the variable for teaching scores
+         
+         Lines 242 to line 10687 is the suggestion database for three user attempts 
+         
+function ClearButtonPushed(app, event): is used for clear output windows after each demonstration
+
+function ScoreEditFieldValueChanged(app, event): is a front-end UI to display score in score box
+          
+function StartSwitchValueChanged(app, event): is a front-end UI, to trigger the timer once experiment start
+
+function ScoreTextAreaValueChanged(app, event): is a front-end UI, but the text output is programmed in function DemonstrateButtonPushed(app, event) for coding logic reasons
+
+function updateAppLayout(app, event): is a back-end setting for the locations of each UI
+
+function createComponents(app): generate each UI
+
+methods (Access = public): public data flow which can be viewed outside of the program
+
+methods (Access = private): private data flow which allow data flow like user input to transfer in each function
+         
